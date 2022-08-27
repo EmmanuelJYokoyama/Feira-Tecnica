@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/estilo2.css">
+    <script src="https://ajax.googleapis.comm/ajax/libs/jquery/3.5.1/jquery.mmin.js"></script>
+
+    <script>
+       $(document).ready(function(){
+  $("#botao1").click(function(){
+   $("#campo:first").clone(true).find("input:text").val("").end().appendTo("#proxp:first");
+  });
+});   
+    </script>
+
+    <title>Formulário</title>
+</head>
+<body>
+
+    <header>
+        <div id="header">
+            <div id="divimg1">
+                <img src="univap.png" id="img1" alt="">
+            </div>
+
+            <h1>Cadastro de Projetos</h1>	
+
+            <div id="divimg2">
+                <img src="info.jpg" id="img2" alt="">
+            </div>
+        </div>
+    </header>
+
+
+
+
+    <main>
+       
+
+    <form action="processar.php" method="POST" enctype="multipart/form-data">
+        <div class="interface">
+
+            
+                        <div class="field">
+                <div id="proxm">
+                            <label for="nome">Nome do Aluno</label>
+                            <input type="text" id="nome" name="nome" placeholder="Digite seu nome!">
+                </div>
+                        </div>
+
+                        <div class="field">
+                        <div id="proxm2">
+                            <label for="matricula">Número Matrícula</label>
+                            <input type="text" id="matricula" name="matricula" placeholder="Digite sua Matricula!">
+                        </div>
+                        </div>
+
+                        <div class="field">
+                        <div id="proxm3">
+                            <label for="email">E-mail</label>
+                            <input type="text" id="email" name="email" placeholder="Digite seu E-mail!">
+                        </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="area">Area</label>
+                            <select name="area" id="area">
+                                <option value="1 ">Ciências Exatas e da Terra</option>
+                                <option value="2">Ciências Biológicas</option>
+                                <option value="3">Ciências da Saúde</option>
+                                <option value="4">Ciências Agrárias</option>
+                                <option value="5">Ciências Humanas</option>
+                                <option value="6">Ciências Sociais Aplicadas</option>
+                                <option value="7">Engenharias</option>
+                                <option value="8">Linguística, Letras e Artes</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="turma">Turma</label>
+                            <select name="turma" id="turma">
+                                <option value="1">1 ano</option>
+                                <option value="2">2 ano</option>
+                                <option value="3">3 ano</option>
+                            </select>
+                        </div>
+                       
+
+                        
+                </div>
+            </div>
+               
+            <hr>
+
+                <div class="field">
+                    <label for="titulo">Titulo do Projeto</label>
+                    <input type="text" name="titulo" placeholder="Digite Titulo">
+                </div>
+                <div class="field">
+                    <label for="resumo">Resumo do projeto</label>
+                    <textarea type="text" name="resumo" cols="30" rows="10"></textarea>
+                </div>
+                    <button type="button" id="adicionar">Adicionar</button>
+                    <button type="submit" id="cadastrar">Cadastrar</button>
+
+        </div>        
+    </form>
+        
+    </main>
+
+
+       <script>
+
+            var arraynome = [];
+            var arraymatricula = [];
+            var arrayemail = [];
+            var cont = 1;
+
+            const adicionar = document.getElementById("adicionar");
+            const nome = document.getElementById("proxm");
+            const matricula = document.getElementById("proxm2");
+            const email = document.getElementById("proxm3");
+
+            adicionar.addEventListener("click", function() {
+                let campo = document.createElement("input");
+                campo.id = "camponome"+cont;
+                let campo2 = document.createElement("input");
+                campo2.id = "campomatricula"+cont;
+                let campo3 = document.createElement("input");
+                campo3.id = "campoemail"+cont;
+
+                campo.name = "nome";
+                campo.placeholder = "Digite seu nome!";
+
+                campo2.name = "matricula";
+                campo2.placeholder = "Digite sua Matricula!";
+
+                campo3.name = "email";
+                campo3.placeholder = "Digite seu E-mail!";
+
+                nome.appendChild(campo);
+                matricula.appendChild(campo2);
+                email.appendChild(campo3);
+             
+                cont++;
+            })
+
+          
+                for(var x=0; x<cont; x++){
+                    arraynome[x] = document.getElementById("camponome"+x+1).value;
+                    arraymatricula[x] = document.getElementById("campomatricula"+x+1).value;
+                    arrayemail[x] = document.getElementById("campoemail"+x+1).value;
+            
+                    const ajaxap = new XMLHttpRequest();
+                    ajaxap.open("POST", "processar.php");
+                    ajaxap.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+                }
+                  
+                    
+                
+           
+        </script>
+</body>
+</html>
