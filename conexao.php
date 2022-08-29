@@ -10,20 +10,18 @@ class Notas{
 			$this->con = mysqli_connect($this->servidor, $this->usuario, $this->senha, $this->dbname);
 	}
 	
-	function inserirNOTA($Apresentacao, $Relevancia, $Utilidade, $comentario){
+	function inserirNOTA($Apresentacao, $Relevancia, $Utilidade, $comentario, $titulo){
 		$comando = "insert into avaliacao (notaApresentacao, notaRelevancia, notaUtilidade, comentario) values (".$Apresentacao.", ".$Relevancia.", ".$Utilidade.", '".$comentario."');";
 		$result = mysqli_query($this->con, $comando);
 
-
-		return 1;
 		
 	}  
 
 	//function inserirGRUPO($nomeCAP, $)
 	
 
-	function inserirALUNO($nome, $matriculaCAP, $emailCAP, $turma){
-		$comando = "insert into aluno (nome, matricula, email, Turma_Turma) values ('".$nome."', '".$matriculaCAP."', '".$emailCAP."', '".$turma."');";   
+	function inserirALUNO($nome, $matricula, $email, $turma){
+		$comando = "insert into aluno (nome, matricula, email, Turma_Turma) values ('".$nome."', '".$matricula."', '".$email."', '".$turma."');";   
 		$result = mysqli_query($this->con, $comando);
 
 	}
