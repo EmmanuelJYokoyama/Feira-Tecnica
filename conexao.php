@@ -1,38 +1,39 @@
 <?php
+class Notas{
+	private $servidor = "localhost";
+	private $usuario = "root";
+	private $senha = "";
+	private $dbname = "mydb";
+	private $con = null;
 
-include "conexao.php";
-    $banco = new Notas();
+	function __construct(){	
+			$this->con = mysqli_connect($this->servidor, $this->usuario, $this->senha, $this->dbname);
+	}
+	
+	function inserirNOTA($Apresentacao, $Relevancia, $Utilidade, $comentario, $titulo){
+		$comando = "insert into avaliacao (notaApresentacao, notaRelevancia, notaUtilidade, comentario) values (".$Apresentacao.", ".$Relevancia.", ".$Utilidade.", '".$comentario."');";
+		$result = mysqli_query($this->con, $comando);
 
-    if(isset($_POST['nota1'])){
+		
+	}  
 
-        
-        //Variaveis para a Avaliação
-        $Apresentacao = $_POST['nota1'];
-        $Relevancia = $_POST['nota2'];
-        $Utilidade = $_POST['nota3'];
-        $comentario = $_POST["coment"];
-        $area = $_POST['area'];
-        $res = $banco->inserirNOTA($Apresentacao, $Relevancia, $Utilidade, $comentario, $area);
-    }
-    
-    if(isset($_POST['nome'])){
+	//function inserirGRUPO($nomeCAP, $)
+	
 
-        //Váriaveis para o cadastro do Formulario
+	function inserirALUNO($nome, $matricula, $email, $turma){
+		$comando = "insert into aluno (nome, matricula, email, Turma_Turma) values ('".$nome."', '".$matricula."', '".$email."', '".$turma."');";   
+		$result = mysqli_query($this->con, $comando);
 
-        $nome = $_POST['nome'];
-        $email = $_POST['email'];
-        $matricula = $_POST['matricula'];
-        $turma = $_POST['turma'];
-        $titulo = $_POST['titulo'];
-        $resumo = $_POST['resumo'];
-        $area = $_POST['area'];
+	}
 
-        $res = $banco->inserirALUNO($nome, $matricula, $email, $turma);
-        $res = $banco->inserirTRABALHO($titulo, $resumo, $area);
-        //$res = $banco->inserirGRUPO();
-        //$res = $banco->inserirTURMA($turma);
-        //$res = $banco->inserirCURSO($area);
-       
-        
-           
-    }
+	
+	function inserirTRABALHO($titulo, $resumo, $area){
+		$comando = "insert into trabalho (titulo, resumo, areaConhecimento_idareaConhecimento) values ('".$titulo."', '".$resumo."', '".$area."');";
+		$result = mysqli_query($this->con, $comando);
+	}
+
+		
+		
+	}
+		
+?>
