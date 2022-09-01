@@ -1,0 +1,15 @@
+INSERT INTO `` (`idTurma`,`turma`) VALUES (1,'1°ano');
+INSERT INTO `` (`idTurma`,`turma`) VALUES (2,'2°ano');
+INSERT INTO `` (`idTurma`,`turma`) VALUES (3,'3°ano');
+
+
+
+
+INSERT INTO `` (`idareaConhecimento`,`area`) VALUES (1,'Ciências Exatas e da Terra');
+INSERT INTO `` (`idareaConhecimento`,`area`) VALUES (2,'Ciências Biológicas');
+INSERT INTO `` (`idareaConhecimento`,`area`) VALUES (3,'Engenharias');
+INSERT INTO `` (`idareaConhecimento`,`area`) VALUES (4,'Ciências da Saúde');
+INSERT INTO `` (`idareaConhecimento`,`area`) VALUES (5,'Ciências Agrárias');
+INSERT INTO `` (`idareaConhecimento`,`area`) VALUES (6,'Ciências Sociais');
+INSERT INTO `` (`idareaConhecimento`,`area`) VALUES (7,'Ciências Humanas');
+INSERT INTO `` (`idareaConhecimento`,`area`) VALUES (8,'Linguística, Letras e Artes');
