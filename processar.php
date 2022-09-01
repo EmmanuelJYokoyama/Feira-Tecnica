@@ -9,7 +9,7 @@ include "conexao.php";
 		$Relevancia = $_POST['nota2'];
 		$Utilidade = $_POST['nota3'];
 		$comentario = $_POST["coment"];
-		$res = $banco->inserirNOTA($Apresentacao, $Relevancia, $Utilidade, $comentario);
+		$res = $banco->inserirNOTA($Apresentacao, $Relevancia, $Utilidade, $comentario, $titulo);
 	}
 	
 	if(isset($_POST['nome'])){
