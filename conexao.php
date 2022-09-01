@@ -13,6 +13,7 @@ class Notas{
 	function inserirNOTA($Apresentacao, $Relevancia, $Utilidade, $comentario, $titulo){
 		$comando = "insert into avaliacao (notaApresentacao, notaRelevancia, notaUtilidade, comentario) values (".$Apresentacao.", ".$Relevancia.", ".$Utilidade.", '".$comentario."');";
 		$result = mysqli_query($this->con, $comando);
+		
 
 		
 	}  
@@ -32,6 +33,24 @@ class Notas{
 		$result = mysqli_query($this->con, $comando);
 	}
 
+	function inserirGRUPO($matricula,  $titulo){
+		$comando = "select idAluno from aluno where matricula = '$matricula'";
+		$result = mysqli_query($this->con, $comando);
+		
+		while($linha = $result->fetch_object()){
+			$idCAP = $linha->idAluno;	
+		}
+		$comando = "select idTrabalho from trabalho where titulo = '$titulo'";
+		$result = mysqli_query($this->con, $comando);
+		while($coluna = $result->fetch_object()){
+			$idTitulo = $coluna->idTrabalho;
+		}
+		
+		$comando = "insert into grupo values ('".$idTitulo."', '".$idCAP."');";
+		$result = mysqli_query($this->con, $comando);
+
+	}
+	
 		
 		
 	}
