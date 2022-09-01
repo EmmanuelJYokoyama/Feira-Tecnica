@@ -34,6 +34,6 @@ include "conexao.php";
         //$res = $banco->inserirTURMA($turma);
         //$res = $banco->inserirCURSO($area);
        
-          
+      
         
     }
